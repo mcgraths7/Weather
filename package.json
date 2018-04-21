@@ -1,0 +1,17 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "An app for learning about async using Google Geolocation API and Dark Sky API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steven McGrath",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "fetch": "^1.1.0",
+    "request": "^2.83.0",
+    "yargs": "^11.0.0"
+  }
+}
