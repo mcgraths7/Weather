@@ -1,6 +1,6 @@
 const yargs = require('yargs');
 
-const {formattedResponse} = require('./utilities/helpers');
+const {formattedResponse} = require('./utilities/formattedResponse');
 
 const argv = yargs
 	.options({
@@ -22,6 +22,7 @@ formattedResponse(encodedAddress).then(function(data) {
 	const thisHour = data.thisHour;
 	const thisDay = data.thisDay;
 	const thisWeek = data.thisWeek;
+	console.log(now);
 	
 }).catch(function(error) {
 	console.log(error);

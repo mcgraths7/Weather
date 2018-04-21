@@ -41,7 +41,7 @@ const formattedResponse = function(encodedAddress) {
 			})
 		})
 	};
-	const formattedResponse = function() {
+	const formattedData = function() {
 		return getGeocodeCoordinates().then(function (coordinates) {
 			return getWeatherForecast(coordinates.latitude, coordinates.longitude).then(function (weatherResponse) {
 				const rightNow = weatherResponse.rightNow;
@@ -116,7 +116,7 @@ const formattedResponse = function(encodedAddress) {
 			console.log(error);
 		});
 	};
-	return formattedResponse();
+	return formattedData();
 };
 
 module.exports = {formattedResponse};
