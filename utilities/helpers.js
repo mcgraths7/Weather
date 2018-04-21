@@ -33,15 +33,15 @@ const request = require('request');
 const newData = function(encodedAddress) {
 	
 	
-	const getGeocodeCoordinates = function() {
-		return new Promise(function(resolve, reject) {
+	const getGeocodeCoordinates = function () {
+		return new Promise(function (resolve, reject) {
 			request({
 				url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyC-4GBNQbBd2V6K76Us2OmUQhDVO3iS3MU`,
 				json: true
-			}, function(error, response, body) {
+			}, function (error, response, body) {
 				if (error) {
 					reject('Unable to connect to Google server');
-				} else if(body.status === 'ZERO_RESULTS') {
+				} else if (body.status === 'ZERO_RESULTS') {
 					reject('No location data for that address');
 				} else if (body.status === 'OK') {
 					resolve({
@@ -53,12 +53,12 @@ const newData = function(encodedAddress) {
 		})
 	};
 	
-	const getWeatherForecast = function(latitude, longitude) {
-		return new Promise(function(resolve, reject) {
+	const getWeatherForecast = function (latitude, longitude) {
+		return new Promise(function (resolve, reject) {
 			request({
 				url: `https://api.darksky.net/forecast/2c7bdd0cf569787aac3afa6a26f54e44/${latitude},${longitude}`,
 				json: true
-			}, function(error, response, body) {
+			}, function (error, response, body) {
 				if (!error && response.statusCode === 200) {
 					resolve({
 						rightNow: body.currently,
@@ -72,83 +72,28 @@ const newData = function(encodedAddress) {
 			})
 		})
 	};
-	
-	return getGeocodeCoordinates().then(function(coordinates) {
-		return getWeatherForecast(coordinates.latitude, coordinates.longitude).then(function(weatherResponse) {
-			console.log(JSON.stringify(weatherResponse, undefined, 2));
-		}).catch(function(err) {
+	const formattedResponse = function() {
+		return getGeocodeCoordinates().then(function (coordinates) {
+			return getWeatherForecast(coordinates.latitude, coordinates.longitude).then(function (weatherResponse) {
+				const rightNow = weatherResponse.rightNow;
+				const thisHour = weatherResponse.thisHour;
+				const thisDay = weatherResponse.thisDay;
+				const thisWeek = weatherResponse.thisWeek;
+				console.log(JSON.stringify(rightNow, undefined, 2));
+				console.log(JSON.stringify(thisHour, undefined, 2));
+				console.log(JSON.stringify(thisDay, undefined, 2));
+				console.log(JSON.stringify(thisWeek, undefined, 2));
+			}).catch(function (err) {
+				console.log(err);
+			})
+		}).catch(function (err) {
 			console.log(err);
-		})
-	}).catch(function(err) {
-		console.log(err);
-	})
-	
+		});
+	};
+	return formattedResponse();
 };
 
 
-const data = async function(encodedAddress) {
-	const geoURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyC-4GBNQbBd2V6K76Us2OmUQhDVO3iS3MU`;
-	const getGeocodeResponse = async function() {
-		
-		const createCoordinates = function(response) {
-			const latitude = response.data.results[0].geometry.location.lat;
-			const longitude = response.data.results[0].geometry.location.lng;
-			return `https://api.darksky.net/forecast/2c7bdd0cf569787aac3afa6a26f54e44/${latitude},${longitude}`;
-		};
-		
-		try {
-			const request = await axios.get(geoURL);
-			return createCoordinates(request);
-		} catch (e) {
-			console.log(e);
-			throw e;
-		}
-	};
-	
-	const getWeatherURL = async function() {
-		try {
-			return await getGeocodeResponse()
-		} catch (e) {
-			console.log(e);
-		}
-	};
-	
-	const getWeatherData = async function() {
-		try {
-			const weatherURL = await getWeatherURL();
-			const weatherData = await axios.get(weatherURL);
-			return formatResults(weatherData);
-		} catch (e) {
-			console.log(e);
-		}
-	};
-	
-	const formatResults = function(weatherData) {
-		return {
-			weatherRightNow: weatherData.data.currently,
-			weatherThisHour: weatherData.data.minutely,
-			weatherThisDay: weatherData.data.hourly,
-			weatherThisWeek: weatherData.data.daily
-		}
-	};
-	
-	return {
-		rightNow: {
-			summary: getWeatherData().then(now => {
-				return now.weatherRightNow.summary;
-			}).catch(err => {
-				console.log(err);
-			})
-		},
-		forTheHour: {
-			summary: getWeatherData().then(hour => {
-				return hour.weatherThisHour.summary;
-			}).catch(err => {
-				console.log(err);
-			})
-		}
-	};
-	
 	// rightNow: function(encodedAddress) {
 	// 	try {
 	// 		const response = getWeatherResponse(encodedAddress);
@@ -212,6 +157,6 @@ const data = async function(encodedAddress) {
 	// 		}
 	// 	});
 	// }
-};
+
 
 module.exports = {newData};
