@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc53b93f-3d8a-4fe0-bc06-56edabb0a9a4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utilities/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/utilities/helpers.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,54 +20,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="375">
+              <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helpers.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="helpers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utilities/helpers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="32" selection-start-line="32" selection-end-line="93" selection-end-column="2" />
+            <state relative-caret-position="759">
+              <caret line="121" column="37" lean-forward="true" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="promise-2.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/playground/promise-2.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="promise.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/playground/promise.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recursion.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/playground/recursion.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="promises-3.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/playground/promises-3.js">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -83,9 +50,15 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>minutelyWeather</find>
+      <find>response.weatherRightNow</find>
+      <find>weatherThisHour</find>
+      <find>hour</find>
     </findStrings>
     <replaceStrings>
       <replace>weatherThisHour</replace>
+      <replace>rightNow</replace>
+      <replace>thisHour</replace>
+      <replace>thisDay</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -108,8 +81,8 @@
         <option value="$PROJECT_DIR$/utilities/parse_weather_response.js" />
         <option value="$PROJECT_DIR$/playground/example.js" />
         <option value="$PROJECT_DIR$/playground/promises-3.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/utilities/helpers.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -224,12 +197,12 @@
       <workItem from="1520387803435" duration="74000" />
       <workItem from="1521468074867" duration="371000" />
       <workItem from="1523627230306" duration="1462000" />
-      <workItem from="1524236001426" duration="24981000" />
+      <workItem from="1524236001426" duration="28713000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50896000" />
+    <option name="totallyTimeSpent" value="54628000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="970" extended-state="6" />
@@ -570,13 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/playground/promise-2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -586,8 +552,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utilities/helpers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="32" selection-start-line="32" selection-end-line="93" selection-end-column="2" />
+        <state relative-caret-position="759">
+          <caret line="121" column="37" lean-forward="true" selection-start-line="121" selection-start-column="37" selection-end-line="121" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
         </state>
       </provider>
     </entry>
